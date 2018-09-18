@@ -1,23 +1,23 @@
-package br.com.agenda.dao;
+package br.com.agenda.dao1;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.agenda.dao.acess.JPAUtils;
+import br.com.agenda.acess.JPAUtils;
 import br.com.agenda.model.Contato;
 
 public class ContatoDao {
 
 	private static JPAUtils instance;
 	
-	protected EntityManager entityManager;
+	private EntityManager entityManager;
 
 	public static JPAUtils getInstance() {
 		if (instance == null) {
 			instance = new JPAUtils();
 		}
-
+	 
 		return instance;
 	}
 

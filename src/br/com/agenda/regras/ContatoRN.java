@@ -1,17 +1,11 @@
-/**
- * 
- */
 package br.com.agenda.regras;
 
 import java.util.List;
 
-import br.com.agenda.dao.ContatoDao;
+import br.com.agenda.dao1.ContatoDao;
 import br.com.agenda.model.Contato;
 
-/**
- * @author carlosbarbosagomesfilho
- *
- */
+
 public class ContatoRN {
 
 	private ContatoDao contatoDao;

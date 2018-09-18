@@ -1,16 +1,9 @@
-/**
- * 
- */
-package br.com.agenda.dao.acess;
+package br.com.agenda.acess;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- * @author carlosbarbosagomesfilho
- *
- */
 public class JPAUtils {
 
 	private static EntityManagerFactory emf;
