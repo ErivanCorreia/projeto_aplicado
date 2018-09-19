@@ -22,11 +22,11 @@ public class ContatoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private ContatoRN contatoService;
-	private FornecedorRN fornecedorRN;
+	private FornecedorRN fornecedorService;
        
     public ContatoServlet() {
     	this.contatoService = new ContatoRN();
-    	this.fornecedorRN = new FornecedorRN();
+    	this.fornecedorService = new FornecedorRN();
     }
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,18 +58,23 @@ public class ContatoServlet extends HttpServlet {
 			contato.getTelefones().addAll(Arrays.asList(new Telefone(numero1, contato), 
 					  new Telefone(numero2, contato)));
 		}
+	
 		
-		Fornecedor fornecedor = this.fornecedorRN.getById(1L);
-		
+		Fornecedor fornecedor = new Fornecedor();
+		fornecedor.setCnpj("13.671.530/0001-03");
+		fornecedor.setNome("JAVA");
+		fornecedor.getTelefones().add(new Telefone("3228-5799", fornecedor));
 		fornecedor.getContatos().add(contato);
-		this.fornecedorRN.update(fornecedor);
-		
-		
 		contato.getFornecedores().add(fornecedor);
+		this.fornecedorService.addFornecedor(fornecedor);
 		
+		/*
+		Fornecedor fornecedor = this.fornecedorService.getById(2L);
+		fornecedor.getContatos().add(contato);
+		contato.getFornecedores().add(fornecedor);
+		this.fornecedorService.update(fornecedor);
+		*/
 		
-		//salvando contato
-		this.contatoService.addContato(contato);
 		
 		System.out.println(">>>>>>>>>> CONTATO " + contato.getNome()+ " SALVO COM SUCESSO !");
 		

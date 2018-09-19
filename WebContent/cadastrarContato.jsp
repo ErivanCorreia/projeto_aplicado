@@ -22,8 +22,8 @@
 					
 					
 					<label>Emails</label><br/>
-					<input type="text" name="email1" id="email" placeholder="Email(obrigatório)" required/><br/>
-					<input type="text" name="email2" id="email" placeholder="Email(opcional)"/><br/><br/>
+					<input type="text" name="email1" id="email1" placeholder="Email(obrigatório)" required/><br/>
+					<input type="text" name="email2" id="email2" placeholder="Email(opcional)"/><br/><br/>
 					
 					
 					<label>Telefones</label><br/>
