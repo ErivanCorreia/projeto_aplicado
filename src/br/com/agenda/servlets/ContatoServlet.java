@@ -21,11 +21,9 @@ public class ContatoServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private ContatoRN contatoService;
 	private FornecedorRN fornecedorService;
        
     public ContatoServlet() {
-    	this.contatoService = new ContatoRN();
     	this.fornecedorService = new FornecedorRN();
     }
   
@@ -59,7 +57,7 @@ public class ContatoServlet extends HttpServlet {
 					  new Telefone(numero2, contato)));
 		}
 	
-		
+		/*
 		Fornecedor fornecedor = new Fornecedor();
 		fornecedor.setCnpj("13.671.530/0001-03");
 		fornecedor.setNome("JAVA");
@@ -67,19 +65,19 @@ public class ContatoServlet extends HttpServlet {
 		fornecedor.getContatos().add(contato);
 		contato.getFornecedores().add(fornecedor);
 		this.fornecedorService.addFornecedor(fornecedor);
-		
-		/*
-		Fornecedor fornecedor = this.fornecedorService.getById(2L);
-		fornecedor.getContatos().add(contato);
-		contato.getFornecedores().add(fornecedor);
-		this.fornecedorService.update(fornecedor);
 		*/
 		
 		
-		System.out.println(">>>>>>>>>> CONTATO " + contato.getNome()+ " SALVO COM SUCESSO !");
+		Fornecedor fornecedor = this.fornecedorService.getById(1L);
+		fornecedor.getContatos().add(contato);
+		contato.getFornecedores().add(fornecedor);
+		this.fornecedorService.update(fornecedor);
 		
-
-		response.sendRedirect("home.jsp");
+		
+		
+		System.out.println(">>>>> CONTATO " + contato.getNome()+ " SALVO COM SUCESSO !");
+		
+		response.sendRedirect("cadastrarContato.jsp");
 	}
 
 }

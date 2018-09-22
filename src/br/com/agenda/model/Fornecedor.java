@@ -38,18 +38,22 @@ public class Fornecedor {
 		inverseJoinColumns = @JoinColumn(name = "id_contato")
 			)
 	private List<Contato> contatos;
+	
+	@OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL)
+	private List<Email> emails;
 
 	public Fornecedor() {
 		this.telefones = new ArrayList<>();
 		this.contatos = new ArrayList<>();
+		this.emails = new ArrayList<>();
 	}
 	
 	public Fornecedor(String nome, String cnpj) {
-		super();
 		this.nome = nome;	
 		this.cnpj = cnpj;
 		this.telefones = new ArrayList<>();
 		this.contatos = new ArrayList<>();
+		this.emails = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -92,6 +96,12 @@ public class Fornecedor {
 		this.cnpj = cnpj;
 	}
 
-	
-	
+	public List<Email> getEmails() {
+		return emails;
+	}
+
+	public void setEmails(List<Email> emails) {
+		this.emails = emails;
+	}
+
 }

@@ -21,9 +21,12 @@
 					<input type="text" name="cnpj" id="cnpj" placeholder="CNPJ" required/><br/><br/>
 					
 					<label>Telefones</label><br/>
-					<input type="text" name="numero1" id="numero1" placeholder="Número de telefone(obrigatório)" required/><br/>
-					<input type="text" name="numero2" id="numero2" placeholder="Número de telefone(opcional)"/><br/>
+					<input type="text" name="numero1" id="numero1" placeholder="Telefone(obrigatório)" required/><br/>
+					<input type="text" name="numero2" id="numero2" placeholder="Telefone(opcional)"/><br/>
 					
+					<label>Emails</label><br/>
+					<input type="text" name="email1" id="email1" placeholder="Email(obrigatório)" required/><br/>
+					<input type="text" name="email2" id="email2" placeholder="Email(opcional)"/><br/>
 						
 					<input type="submit" value="Enviar" />
 				<hr>

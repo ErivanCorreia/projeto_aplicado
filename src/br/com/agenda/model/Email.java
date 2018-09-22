@@ -24,6 +24,10 @@ public class Email {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "contato_id")
 	private Contato contato;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fornecedor_id")
+	private Fornecedor fornecedor;
 
 	public Email() {
 	}
@@ -33,6 +37,13 @@ public class Email {
 		this.descricao = descricao;
 		this.contato = contato;
 	}
+	
+	public Email(String descricao, Fornecedor fornecedor) {
+		super();
+		this.descricao = descricao;
+		this.fornecedor = fornecedor;
+	}
+	
 
 	public Long getId() {
 		return id;
@@ -56,6 +67,14 @@ public class Email {
 
 	public void setContato(Contato contato) {
 		this.contato = contato;
+	}
+
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
 	}
 	
 }

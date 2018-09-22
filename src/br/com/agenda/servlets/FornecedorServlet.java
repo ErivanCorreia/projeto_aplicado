@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agenda.model.Email;
 import br.com.agenda.model.Fornecedor;
 import br.com.agenda.model.Telefone;
 import br.com.agenda.regras.FornecedorRN;
@@ -34,6 +35,8 @@ public class FornecedorServlet extends HttpServlet {
 		String cnpj = request.getParameter("cnpj");
 		String numero1 = request.getParameter("numero1");
 		String numero2 = request.getParameter("numero2");
+		String email1 = request.getParameter("email1");
+		String email2 = request.getParameter("email2");
 		
 		fornecedor.setNome(nome);
 		fornecedor.setCnpj(cnpj);
@@ -44,6 +47,14 @@ public class FornecedorServlet extends HttpServlet {
 		} else {
 			fornecedor.getTelefones()
 					.addAll(Arrays.asList(new Telefone(numero1, fornecedor), new Telefone(numero2, fornecedor)));
+		}
+		
+		// Impedindo que o segundo email entre no banco vazio
+		if (email2 == null || email2 == "" || email2 == " ") {
+			fornecedor.getEmails().add(new Email(email1, fornecedor));
+		} else {
+			fornecedor.getEmails()
+					.addAll(Arrays.asList(new Email(email1, fornecedor), new Email(email2, fornecedor)));
 		}
 		
 		
